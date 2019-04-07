@@ -10,12 +10,31 @@ public class Digits
     //represents num
     public Digits (int num)
     {
-        //implemented in part (a)
+        digitList = new ArrayList<Integer>();
+        if (num == 0)
+        {
+            digitList.add(0);
+        }
+        while (num > 0)
+        {
+            digitList.add(0, (num % 10));
+            num /= 10;
+        }
     }
+//implemented in part (a)
+
     public boolean isStrictlyIncreasing()
     {
-        //implemented in part (b)
+        for (int i = 0; i < digitList.size()-1; i++)
+        {
+            if (digitList.get(i).intValue() >= digitList.get(i+1).intValue())
+            {
+                return false;
+            }
+        }
+        return true;
     }
+
     //Extra method to make the runner easier to read
     public ArrayList<Integer> getDigitList()
     {
